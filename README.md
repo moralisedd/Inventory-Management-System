@@ -2,6 +2,7 @@
 
 Multi-role inventory management app for a fictitious grocery chain, QuickBuy Ltd. Four roles: Store Manager, Warehouse Manager, Category Manager, Sales Associate.
 
+## 🌐 Live Web Application: https://quickbuyltd.xo.je/
 ---
 
 ## Prerequisites
