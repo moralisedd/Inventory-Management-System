@@ -1,0 +1,400 @@
+/* ============================================================
+   base.css — Shared styles for all QuickBuy dashboard pages
+   Import this BEFORE any page-specific stylesheet.
+   ============================================================ */
+
+/* ----- Reset ----- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* ----- Font: Inter (all weights used in the app) ----- */
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/Inter_18pt-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/Inter_18pt-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/Inter_18pt-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/Inter_18pt-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/Inter_18pt-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+/* ----- CSS Custom Properties ----- */
+:root {
+  --primary-color: #0066ff;
+  --sidebar-width: 280px;
+  --header-height: 70px;
+  --bg-page: #f8f9fa;
+  --bg-card: #ffffff;
+  --border-color: #eee;
+  --text-primary: #333;
+  --text-secondary: #666;
+}
+
+/* ----- Body ----- */
+body {
+  background-color: var(--bg-page);
+}
+
+/* ----- Page layout ----- */
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ----- Sidebar ----- */
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  min-width: var(--sidebar-width);
+  min-height: 100%;
+  background-color: var(--bg-card);
+}
+
+/* ----- Main content area ----- */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  min-width: 0; /* prevent flex overflow */
+}
+
+/* ----- Top header bar ----- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  background: var(--bg-card);
+  padding: 15px 30px;
+  border-radius: 12px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-page);
+  padding: 10px 20px;
+  border-radius: 8px;
+  flex: 1;
+  max-width: 500px;
+}
+
+.search-bar svg {
+  width: 20px;
+  height: 20px;
+  color: var(--text-secondary);
+}
+
+.search-bar input {
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 16px;
+  width: 100%;
+}
+
+.header-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.header-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.header-actions button svg {
+  width: 20px;
+  height: 20px;
+  color: var(--text-secondary);
+}
+
+/* ----- Section header (title + "See All" row) ----- */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.see-all {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.see-all:hover {
+  text-decoration: underline;
+}
+
+/* ----- Stat cards (overview strip) ----- */
+.inventory-overview {
+  background: var(--bg-card);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.inventory-overview h2 {
+  font-size: 20px;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #c8c8c8;
+}
+
+.stat-card:last-child {
+  border-right: none;
+}
+
+.stat-card h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.stat-card h3.blue   { color: #1a73e8; }
+.stat-card h3.orange { color: #ff8a3d; }
+.stat-card h3.purple { color: #8b46ff; }
+.stat-card h3.red    { color: #ff4757; }
+
+.stat-content {
+  display: flex;
+  gap: 48px;
+}
+
+.stat-group {
+  flex: 1;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.stat-sub {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* ----- Charts section ----- */
+.charts-section {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.chart-header select {
+  padding: 8px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  outline: none;
+}
+
+/* ----- Low stock panel ----- */
+.low-stock {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.stock-items {
+  display: grid;
+  gap: 15px;
+}
+
+/* ----- Status badges ----- */
+.status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ----- Products section ----- */
+.products-section {
+  background: var(--bg-card);
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+/* ----- Buttons ----- */
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.btn.secondary {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+/* ----- Table ----- */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.table-container table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.table-container table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.table-container table tbody tr:active {
+  background-color: #e5e5e5;
+}
+
+/* ----- Pagination ----- */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.pagination span {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* ----- Stats grid (order/inventory overview strip) ----- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* ----- Popup (add-order / add-product form overlay) ----- */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
+  padding: 20px;
+  background: white;
+  z-index: 100;
+  min-width: 320px;
+}
+
+/* ----- Responsive breakpoints ----- */
+@media (max-width: 1200px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .sidebar-container {
+    min-width: 100px;
+    padding: 20px 15px;
+  }
+
+  .sidebar-container span {
+    display: none;
+  }
+
+  .main-content {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main-content {
+    padding: 16px;
+  }
+}
