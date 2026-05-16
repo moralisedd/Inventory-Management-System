@@ -1,6 +1,6 @@
 # QuickBuy Inventory Management System
 
-Group 16 academic project. Multi-role inventory management app for a fictitious grocery chain, QuickBuy Ltd. Four roles: Store Manager, Warehouse Manager, Category Manager, Sales Associate.
+Multi-role inventory management app for a fictitious grocery chain, QuickBuy Ltd. Four roles: Store Manager, Warehouse Manager, Category Manager, Sales Associate.
 
 ---
 
@@ -126,9 +126,3 @@ Inventory Management System/
 3. Every protected page calls `require_role()` from `session_guard.php` before any HTML output.
 4. `auth-guard.js` provides a secondary client-side check via `/backend/auth/check-session.php`.
 5. Logout: `backend/auth/logout.php` destroys the session and redirects to login.
-
----
-
-## Deployment
-
-See [DEPLOY.md](DEPLOY.md) for InfinityFree hosting setup.
